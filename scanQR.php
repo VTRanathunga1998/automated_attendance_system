@@ -321,7 +321,7 @@
                     <div style="width: 70%;height: 100%;"></div>
                     <div class="logout-btn">
 
-                        <form action="adminTakeAttendance.php" method="POST">
+                        <form action="sessionDestroy.php" method="POST">
                             <button name="sesAbort" class="btn-center" onclick="return confirm('Are you sure?');"><i class="fa fa-sign-out" aria-hidden="true" ></i>  End Session</button>
                         </form>
                             
