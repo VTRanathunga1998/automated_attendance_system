@@ -331,9 +331,6 @@
                     </div>
                 </div>
 
-                    
-                
-
                     <div class="rs-middle">
                         <div class="pw-change-container">
                             <div class="pwc-top"></div>
@@ -393,7 +390,7 @@
             }
 
             if(pass.value.length < 4){
-                str.innerHTML = "weak";
+                str.innerHTML = "too short";
                 pass.style.borderColor = "#ff5925";
                 msg.style.color = "#ff5925";
             } else if(pass.value.length >= 4 && pass.value.length < 8) {

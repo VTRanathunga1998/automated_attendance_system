@@ -20,11 +20,7 @@
             $number       = preg_match('@[0-9]@', $newPass);
             $specialchars = preg_match('@[^\w]@', $newPass);
 
-            if (!$uppercase || !$lowercase || !$number || !$specialchars || strlen($newPass) < 8) {
-                header("Location:adminPassChange.php?status=unsuccess");
-                exiit();
-                
-              } else {
+            
                 $sql = "SELECT * FROM user WHERE userName='$uName';";
 
                 $result = mysqli_query($connect,$sql);
@@ -33,43 +29,123 @@
                 if($resultRow > 0){
                     while($row = mysqli_fetch_assoc($result)){
                         if($currentPass != '' && $newPass != '' && $confirmPass != ''){
-                            if(password_verify($currentPass,$row['password'])){
-                                if($newPass == $confirmPass){
-                                    $sql = "UPDATE user SET password = '$securePassword' WHERE userName = '$uName';";
-                                    mysqli_query($connect,$sql);
-                                    if($row['role'] == 'Student'){
-                                        header("Location:studentProfile.php?status=success");
-                                        exiit();
-                                    } elseif($row['role'] == 'Admin'){
-                                        header("Location:adminProfile.php?status=success");
-                                        exiit();
+
+                                    if(password_verify($currentPass,$row['password'])){
+                                        
+                                        if (!$uppercase || !$lowercase || !$number || !$specialchars || strlen($newPass) < 8) {
+                                            if($row['role'] == 'Student'){
+                                                echo '<script>if(confirm("Password is too weak. At least 8-12 characters long but 14 or more is better. A combination of uppercase letters, lowercase letters, numbers, and symbols")) document.location = "studentPassChange.php";</script>';
+                                                exiit();
+                                            } elseif($row['role'] == 'Admin'){
+                                                echo '<script>if(confirm("Password is too weak. At least 8-12 characters long but 14 or more is better. A combination of uppercase letters, lowercase letters, numbers, and symbols")) document.location = "adminPassChange.php";</script>';
+                                                exiit();
+                                            } else{
+                                                echo '<script>if(confirm("Password is too weak. At least 8-12 characters long but 14 or more is better. A combination of uppercase letters, lowercase letters, numbers, and symbols")) document.location = "lecturerPassChange.php";</script>';
+                                                exiit();
+                                            }
+            
+                                            
+                                          } else {
+                                            if($newPass == $confirmPass){
+                                                $sql = "UPDATE user SET password = '$securePassword' WHERE userName = '$uName';";
+                                                mysqli_query($connect,$sql);
+                                                if($row['role'] == 'Student'){
+                                                    echo '<script>if(confirm("Your password has been changed successfully")) document.location = "studentProfile.php";</script>';
+                                                    exiit();
+                                                } elseif($row['role'] == 'Admin'){
+                                                    echo '<script>if(confirm("Your password has been changed successfully")) document.location = "admintProfile.php";</script>';
+                                                    exiit();
+                                                } else{
+                                                    echo '<script>if(confirm("Your password has been changed successfully")) document.location = "lecturerProfile.php";</script>';
+                                                    exiit();
+                                                }
+                                            } else {
+                                                if($row['role'] == 'Student'){
+                                                    echo '<script>if(confirm("The password comfirmation does not match")) document.location = "studentPassChange.php";</script>';
+                                                    exiit();
+                                                } elseif($row['role'] == 'Admin'){
+                                                    echo '<script>if(confirm("The password comfirmation does not match")) document.location = "adminPassChange.php";</script>';
+                                                    exiit();
+                                                } else{
+                                                    echo '<script>if(confirm("The password comfirmation does not match")) document.location = "lecturerPassChange.php";</script>';
+                                                    exiit();
+                                                }
+                                                
+                                            }
+                                          }  
+                                    
+                                    
+
                                     } else{
-                                        header("Location:lecturerProfile.php?status=success");
-                                        exiit();
+                                        if($row['role'] == 'Student'){
+                                            echo '<script>if(confirm("Incorrect password")) document.location = "studentPassChange.php";</script>';
+                                            exiit();
+                                        } elseif($row['role'] == 'Admin'){
+                                            echo '<script>if(confirm("Incorrect password")) document.location = "adminPassChange.php";</script>';
+                                            exiit();
+                                        } else{
+                                            echo '<script>if(confirm("Incorrect password")) document.location = "lecturerPassChange.php";</script>';
+                                            exiit();
+                                        }
+                                        
                                     }
-                                } else {
-                                    echo 'Password Mismatch';
-                                }
-                            } else{
-                                echo 'Password Incorrect';
-                            }
+                                        
                         } else {
-                            echo 'You must fill all the fields';
+                            if($row['role'] == 'Student'){
+                                echo '<script>if(confirm("The fields cannot be empty!")) document.location = "studentPassChange.php";</script>';
+                                exiit();
+                            } elseif($row['role'] == 'Admin'){
+                                echo '<script>if(confirm("The fields cannot be empty!")) document.location = "adminPassChange.php";</script>';
+                                exiit();
+                            } else{
+                                echo '<script>if(confirm("The fields cannot be empty!")) document.location = "lecturerPassChange.php";</script>';
+                                exiit();
+                            }
+                            
                         }
                     }
                 } else {
-                    echo "Data doesn't exist";
+                    if($row['role'] == 'Student'){
+                        echo '<script>if(confirm("Data doesnot exist")) document.location = "studentPassChange.php";</script>';
+                        exiit();
+                    } elseif($row['role'] == 'Admin'){
+                        echo '<script>if(confirm("Data doesnot exist")) document.location = "adminPassChange.php";</script>';
+                        exiit();
+                    } else{
+                        echo '<script>if(confirm("Data doesnot exist")) document.location = "lecturerPassChange.php";</script>';
+                        exiit();
+                    }
+                    
                 }
-                }
+
 
             
         } else {
-            echo 'Error Occured';
+             if($row['role'] == 'Student'){
+                                echo '<script>if(confirm("Oops!,Something went wrong. Try again..")) document.location = "studentPassChange.php";</script>';
+                                exiit();
+                            } elseif($row['role'] == 'Admin'){
+                                echo '<script>if(confirm("Oops!,Something went wrong!  Try again..")) document.location = "adminPassChange.php";</script>';
+                                exiit();
+                            } else{
+                                echo '<script>if(confirm("Oops!,Something went wrong!  Try again..")) document.location = "lecturerPassChange.php";</script>';
+                                exiit();
+                            }
         }
     } else {
-        echo 'Error Occured';
+         if($row['role'] == 'Student'){
+                                echo '<script>if(confirm("Oops!,Something went wrong!  Try again..")) document.location = "studentPassChange.php";</script>';
+                                exiit();
+                            } elseif($row['role'] == 'Admin'){
+                                echo '<script>if(confirm("Oops!,Something went wrong!  Try again..")) document.location = "adminPassChange.php";</script>';
+                                exiit();
+                            } else{
+                                echo '<script>if(confirm("Oops!,Something went wrong!  Try again..")) document.location = "lecturerPassChange.php";</script>';
+                                exiit();
+                            }
     }
         
-
-    
+  
 ?>
+
+

@@ -34,16 +34,18 @@
                         header("Location:lecturerProfile.php?login=success");
                         exit();
                     } else {
-                        header("Location:index.php?password=incorrect");
-                    exit();
+                        echo '<script>if(confirm("Role does not match")) document.location = \'index.php?password=incorrect\';</script>';
+                        exit();
                     }
                 } else {
-                    header("Location:index.php?password=incorrect");
+                    echo '<script>if(confirm("Password is mismatch")) document.location = \'index.php?password=incorrect\';</script>';
+                    // header("Location:index.php?password=incorrect");
                     exit();
                 }
             }
         } else{
-            header("Location:index.php?login=failed");
+            echo '<script>if(confirm("Somethig went wrong!")) document.location = \'index.php?password=incorrect\';</script>';
+            // header("Location:index.php?login=failed");
             exit();
         }
     }
