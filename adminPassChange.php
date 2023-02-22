@@ -1,7 +1,9 @@
 <?php
     session_start();
+    if(empty($_SESSION['userName'])){
+        header("Location:index.php");
+    }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -327,7 +329,7 @@
                 <div class="rs-top">
                     <div style="width: 70%;height: 100%;"></div>
                     <div class="logout-btn">
-                        <button type="button" class="btn-center"><a href="index.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  Log out</a></button>
+                        <button type="button" class="btn-center"><a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  Log out</a></button>
                     </div>
                 </div>
 
@@ -343,12 +345,12 @@
                                     <label>Old Password</label>
                                     <input type="password" 
                                         name="currentPass" 
-                                        placeholder="Old Password">
+                                        placeholder="Old Password" required>
                                         <br>
 
                                     <label>New Password</label>
                                     <div class="input-box">
-                                        <input type="password" name="newPass" id="password" placeholder="New Password">
+                                        <input type="password" name="newPass" id="password" placeholder="New Password" required>
                                         <p id='message'>
                                             Password is <span id='strength'></span>
                                         </p>
@@ -358,7 +360,7 @@
                                     <label>Confirm New Password</label>
                                     <input type="password" 
                                         name="confirmPass" 
-                                        placeholder="Confirm New Password">
+                                        placeholder="Confirm New Password" required>
                                         <br>
 
                                     <button type="submit" name="changedPass">CHANGE</button>

@@ -1,4 +1,10 @@
 <?php
+
+    session_start();
+    if(empty($_SESSION['userName'])){
+        header("Location:index.php");
+    }
+
     include 'database.php';
     
     if(isset($_GET['search'])){

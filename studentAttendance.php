@@ -1,6 +1,9 @@
 <?php
 
     session_start();
+    if(empty($_SESSION['userName'])){
+        header("Location:index.php");
+    }
 
     include 'database.php';
 
@@ -456,7 +459,7 @@
                     </div>
                     <div style="width: 40%;height: 100%;"></div>
                     <div class="logout-btn">
-                        <button type="button" class="btn-center"><a href="index.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  Log out</a></button>
+                        <button type="button" class="btn-center"><a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  Log out</a></button>
                     </div>
                 </div>
                 <div class="rs-middle">

@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(empty($_SESSION['userName'])){
+        header("Location:index.php");
+    }
 
     $sessionID = $_SESSION['sessionID'];
 ?>
