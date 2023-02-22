@@ -16,10 +16,10 @@
 
         $timeStartHH = $_POST['timeStartHH'];
         $timeStartMM = $_POST['timeStartMM'];
-        $timeStartAMPM = $_POST['timeStartAMPM'];
+
         $timeEndHH = $_POST['timeEndHH'];
         $timeEndMM = $_POST['timeEndMM'];
-        $timeEndAMPM = $_POST['timeEndAMPM'];
+
 
 
         $timeStart = $timeStartHH.':'.$timeStartMM.':00' ;
