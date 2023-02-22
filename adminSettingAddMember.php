@@ -335,7 +335,7 @@
                             <div class="pwc-top"></div>
                             <div class="pwc-middle">
 
-                                <form action="addMemberGen.php" method="POST">
+                                <form action="addMemberGen.php" method="POST" enctype="multipart/form-data">
                                     <h2>Add Members</h2>
                                     
 
@@ -435,7 +435,7 @@
 
                                     <label>Profile Picture</label>
                                     <div>             
-                                        <input type="file" name = "profilePic">
+                                        <input type="file" name = "profilePic" id="profilePic">
                                     </div>
                                        
                                         <br>    

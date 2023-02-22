@@ -15,6 +15,8 @@
         $mobNum = $_POST['mobNum'];
         $faculty = $_POST['chooseFac'];
         $department = $_POST['chooseDep'];
+        $batch = $_POST['chooseBatch'];
+        $profilePic = addslashes(file_get_contents($_FILES['profilePic']['tmp_name']));
     }
 
     $sql = "SELECT faculty.facName,department.depName FROM faculty INNER JOIN department ON department.facID = faculty.facID WHERE department.depID = '$department'";
@@ -41,35 +43,35 @@
                     } else {
                         
                         if($role == "Admin"){
-                            $sql = "INSERT INTO admin(adminID,firstName,lastName,faculty,nic,mobileNum,gender,email,department,userName) VALUES('$id','$fName' , '$lName' , '$faculty' , '$nic' , '$mobNum' , '$gender' , '$email' , '$department','$id');";
+                            $sql = "INSERT INTO admin(adminID,firstName,lastName,faculty,nic,mobileNum,gender,email,department,userName,profilePic) VALUES('$id','$fName' , '$lName' , '$faculty' , '$nic' , '$mobNum' , '$gender' , '$email' , '$department','$id','$profilePic');";
                     
                             if(!mysqli_query($connect,$sql)){
                                 die('Invalid query: ' . mysql_error());
                             } else {
-                                
-                                header("Location:adminProfile.php?add=success");
+                                echo '<script>if(confirm("Successfully added")) document.location = "adminProfile.php";</script>';
+                                // header("Location:adminProfile.php?add=success");
                                 exit();
                                 
                             }
                         }elseif($role == "Student"){
-                            $sql = "INSERT INTO student(RegNum,firstName,lastName,email,faculty,department,gender,mobileNum,userName,nic) VALUES('$id','$fName' , '$lName' , '$email' , '$faculty' , '$department' , '$gender' , '$mobNum','$id','$nic');";
+                            $sql = "INSERT INTO student(RegNum,firstName,lastName,email,faculty,department,gender,mobileNum,userName,nic,batch,profilePic) VALUES('$id','$fName' , '$lName' , '$email' , '$faculty' , '$department' , '$gender' , '$mobNum','$id','$nic','$batch','$profilePic');";
                     
                             if(!mysqli_query($connect,$sql)){
                                 die('Invalid query: ' . mysql_error());
                             } else {
-                                
-                                header("Location:adminProfile.php?add=success");
+                                echo '<script>if(confirm("Successfully added")) document.location = "adminProfile.php";</script>';
+                                // header("Location:adminProfile.php?add=success");
                                 exit();
                                 
                             }
                         }elseif($role == "Lecturer"){
-                            $sql = "INSERT INTO lecturer(lecturerID,firstName,lastName,gender,nic,faculty,department,email,userName) VALUES('$id','$fName' , '$lName' , '$gender' , '$nic' , '$faculty' , '$department' , '$email','$id');";
+                            $sql = "INSERT INTO lecturer(lecturerID,firstName,lastName,gender,nic,faculty,department,email,userName,profilePic) VALUES('$id','$fName' , '$lName' , '$gender' , '$nic' , '$faculty' , '$department' , '$email','$id','$profilePic');";
                     
                             if(!mysqli_query($connect,$sql)){
                                 die('Invalid query: ' . mysql_error());
                             } else {
-                                
-                                header("Location:adminProfile.php?add=success");
+                                echo '<script>if(confirm("Successfully added")) document.location = "adminProfile.php";</script>';
+                                // header("Location:adminProfile.php?add=success");
                                 exit();
                                 
                             }
@@ -79,7 +81,8 @@
                        
                 }
             } else{
-                header("Location:adminProfile.php?create=failed");
+                echo '<script>if(confirm("Operation Failed")) document.location = "adminProfile.php";</script>';
+                // header("Location:adminProfile.php?create=failed");
                 exit();
             }
             

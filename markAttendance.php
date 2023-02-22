@@ -10,14 +10,15 @@
         $present = 1;
 
 
-        $sql = "SELECT regNum FROM attendance WHERE (sessionID = '$sessionId' AND regNum = '$code')";
+        $sql = "SELECT regNum FROM attendance WHERE (sessionID = '$sessionId' AND regNum = '$code')"; //check the register number is already added
 
         $result = mysqli_query($connect,$sql);
         $resultRows = mysqli_num_rows($result);
 
 
-        if($resultRows == 1){        
-            header("Location:scanQR.php");
+        if($resultRows == 1){  
+            echo '<script>if(confirm("Already added")) document.location = \'scanQR.php\';</script>';      
+            // header("Location:scanQR.php");
         } else{
             $sql = "INSERT INTO attendance (regNum,present,sessionID,timeIn) VALUES('$mycode','$present','$sessionId',NOW())";
 

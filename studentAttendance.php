@@ -480,7 +480,7 @@
                                 <table>
                                     <thead>
                                         <tr class="rsmf-table-sticky_th">
-                                            <th>Subject Code</th>
+                                            <th>Subject Name</th>
                                             <th>Activity</th>
                                             <th>Date</th>
                                             <th>Time Slot</th>
