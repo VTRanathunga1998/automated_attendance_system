@@ -14,16 +14,17 @@
 
         $timeStartHH = $_POST['timeStartHH'];
         $timeStartMM = $_POST['timeStartMM'];
-        $timeStartAMPM = $_POST['timeStartAMPM'];
+
         $timeEndHH = $_POST['timeEndHH'];
         $timeEndMM = $_POST['timeEndMM'];
-        $timeEndAMPM = $_POST['timeEndAMPM'];
+
 
         $date = date("Y/m/d");
 
-        $timeStart = $timeStartHH.':'.$timeStartMM.':'.$timeStartAMPM ;
+        $timeStart = $timeStartHH.':'.$timeStartMM.':00';
 
-        $timeEnd = $timeEndHH.':'.$timeEndMM.':'.$timeEndAMPM ;
+        $timeEnd = $timeEndHH.':'.$timeEndMM.':00';
+
 
 
     }
