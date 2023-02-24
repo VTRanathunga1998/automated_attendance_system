@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(empty($_SESSION['userName'])){
-        header("Location:index.php");
+        header("Location:logindenied.php");
     }
 ?>
 
