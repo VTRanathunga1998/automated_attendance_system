@@ -26,7 +26,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body,
         html {
@@ -345,78 +345,13 @@
             height: 20%;
         }
         
-        .pp-container {
-            height: 100%;
-            width: 40%;
-            position: relative;
-        }
+
+
         
-        .pp-border {
-            width: 204px;
-            height: 204px;
-            background-color: grey;
-            border-radius: 50%;
-            box-shadow: 0px 0px 7px 3px rgb(46, 46, 46);
-            position: relative;
-        }
+
         
-        .pp {
-            border: 2px dashed rgb(75, 2, 75);
-        }
+
         
-        
-        
-        .cont-top {
-            height: 10%;
-            position: relative;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-        
-        .cont-middle {
-            height: 75%;
-            position: relative;
-        }
-        
-        .cont-bottom {
-            height: 15%;
-            position: relative;
-        }
-        
-        .cont-b-btn {
-            border-radius: 10mm;
-            padding-left: 13%;
-            padding-right: 13%;
-            padding-bottom: 3%;
-            padding-top: 3%;
-        }
-        
-        .cont-m-row {
-            height: 20%;
-            padding: 0;
-            margin: 0;
-            position: relative;
-        }
-        
-        .cont-m-col {
-            height: 100%;
-            width: 25%;
-        }
-        
-        .cont-middle input[type="text"] {
-            width: 90%;
-            height: 50%;
-            border: none;
-            border-radius: 10mm;
-            padding-left: 3%;
-            padding-right: 3%;
-            background-color: white;
-            font-size: large;
-        }
-        
-        .cont-m-col-radio {
-            font-size: large;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
     </style>
 </head>
 

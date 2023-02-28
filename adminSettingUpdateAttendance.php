@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Attendance</title>
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         body,
@@ -315,7 +315,6 @@
                             </div>
                             <div class="link5">
                                 <a href="#" style="color:rgb(219, 7, 219);" class="disabled"><i class="fa fa-gear" aria-hidden="true"></i>  Setting </a>
-                                <i class="fa fa-caret-down"></i>
                             </div>
                         </div>
                     </div>

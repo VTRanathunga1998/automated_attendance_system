@@ -30,8 +30,10 @@
               <input type="password" name="password" placeholder="Password" required>
             </div>
 
-            <div class="frm-select">             
+            <div class="form-select frm-select">   
+                        
               <select name="role" id="" class="form-select mb-2">
+                
                 <option selected value="Admin">Admin</option>
                 <option value="Lecturer">Lecturer</option>
                 <option value="Student">Student</option>
