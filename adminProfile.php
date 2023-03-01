@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    if(empty($_SESSION['userName'])){
+    if(empty($_SESSION['userName']) || $_SESSION['userName'] != 'Admin'){
         header("Location:logindenied.php");
     }
 

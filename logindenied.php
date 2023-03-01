@@ -1,3 +1,13 @@
+<?php
+
+    session_start();
+
+    if(!empty($_SESSION['userName'])){
+        header("Location:index.php");
+        exit();
+    }
+?>    
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +26,7 @@
                         <div class="card-header">
                             <h4>User Dashboard</h4>
                         </div>
-                        <form action="index.php">
+                        <form action="login.php">
                             <div class="card-body">
                                 <h4>Access when you are login</h4>
                                 <button class="btn btn-primary">Login</button>
