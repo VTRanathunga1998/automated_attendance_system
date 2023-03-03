@@ -59,50 +59,60 @@
 </div>  
     <main class="container py-5">
         <div class="p-5 ">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table table-sm table-success">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">NIC</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Faculty</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            while($row=mysqli_fetch_assoc($result)){
+                        ?>        
+                                <tr>
+                                    <td scope="col" class="align-middle"><?php echo $row['id'] ?></td>
+                                    <td scope="col" class="align-middle"><?php echo $row['role'] ?></td>
+                                    <td scope="col" class="align-middle"><?php echo $row['firstName'] ?></td>
+                                    <td scope="col" class="align-middle"><?php echo $row['nic'] ?></td>
+                                    <td scope="col" class="align-middle"><?php echo $row['email'] ?></td>
+                                    <td scope="col" class="align-middle"><?php echo $row['faculty'] ?></td>
+                                    <td scope="col" class="align-middle"><?php echo $row['department'] ?></td>
+                                    <td scope="col" class="align-middle">
+                                        <div class="d-flex gap-2">
+                                            <button class='btn btn-success'>
+                                                <a id="confirmClickActionElementId" href='giveApprove.php?action=accept&id=<?php echo $row["id"] ?>'>Accept</a>
+                                            </button>
 
-            <table class="table table-bordered">
-                <thead class="table table-sm table-success">
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">NIC</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Faculty</th>
-                        <th scope="col">Department</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        while($row=mysqli_fetch_assoc($result)){
-                    ?>        
-                            <tr>
-                                <td scope="col"><?php echo $row['id'] ?></td>
-                                <td scope="col"><?php echo $row['role'] ?></td>
-                                <td scope="col"><?php echo $row['firstName'] ?></td>
-                                <td scope="col"><?php echo $row['nic'] ?></td>
-                                <td scope="col"><?php echo $row['email'] ?></td>
-                                <td scope="col"><?php echo $row['faculty'] ?></td>
-                                <td scope="col"><?php echo $row['department'] ?></td>
-                                <td scope="col">
-                                    <button class='btn btn-success'>
-                                        <a href='giveApprove.php?action=accept&id=<?php echo $row["id"] ?>'>Accept</a>
-                                    </button>
-
-                                    <button class='btn btn-danger'>
-                                        <a href='giveApprove.php?action=reject&id=<?php echo $row["id"] ?>'>Delete</a>
-                                    </button>
-                                </td>
-                            </tr> 
-                    <?php            
-                        }
-                    ?>                     
-                </tbody>
-            </table>
+                                            <button class='btn btn-danger'>
+                                                <a id="confirmClickActionElementId" href='giveApprove.php?action=reject&id=<?php echo $row["id"] ?>'>Delete</a>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr> 
+                        <?php            
+                            }
+                        ?>                     
+                    </tbody>
+                </table>
+            </div>
         </div>
     </main>
-
+    
+    <script>
+        document
+        .getElementById("confirmClickActionElementId")
+        .addEventListener("click", function(  ){ 
+            return confirm("Do you really want to do this?") ;
+        });
+    </script>
 
 </body>
 

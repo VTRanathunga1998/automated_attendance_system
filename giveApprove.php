@@ -78,20 +78,4 @@
         echo '<script>if(confirm("Member does not exist")) document.location = "approvalExecution.php";</script>';
         exit();
     }
-
-
-
-
-    
-
-
-
-
-    // $sql = "UPDATE attendance SET present = $status WHERE sessionID = '$id' AND regNum = '$regNum';";
-    // if(mysqli_query($connect,$sql)){
-    //     header("Location:updateAttendanceExecuteLiveSearch.php");
-    // } else {
-    //     // echo 'Error';
-    // }
-     
 ?>
