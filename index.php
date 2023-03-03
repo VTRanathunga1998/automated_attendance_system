@@ -1,5 +1,14 @@
 <?php 
   session_start();
+  if(isset($_SESSION['userName'])){
+    if($_SESSION['userName'] == 'Admin'){
+        header("Location:adminProfile.php");
+    } elseif ($_SESSION['userName'] == 'Student'){
+        header("Location:studentProfile.php");
+    } elseif($_SESSION['userName'] == 'Lecturer'){
+        header("Location:lecturerProfile.php");
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -56,18 +65,21 @@
     </div>
       
   </div>
+    <div class="py-5">
+        <div class="container">
+            <div class="row flex-grow-1 justify-content-center">
+                <div class="col-md-12 text-center ">
+                    <div class="clearfix">
+                        <img src="styles/img/SUSL_logo2.png" class="rounded mx-auto d-block img-fluid" alt="SUSL">
+                    </div>
+                    <h2>Automated Attendance System</h2>
+                    <h5>Sabaragamuwa University Of Sri Lanka</h5>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <div class="py-5">
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col text-center">
-                  <img src="styles/img/SUSL_logo2.png" class="rounded mx-auto d-block" alt="SUSL">
-                  <h2>Automated Attendance System</h2>
-                  <h5>Sabaragamuwa University Of Sri Lanka</h5>
-              </div>
-          </div>
-      </div>
-  </div>
+  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>

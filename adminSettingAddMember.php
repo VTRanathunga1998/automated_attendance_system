@@ -342,7 +342,7 @@
                             <div class="pwc-top"></div>
                             <div class="pwc-middle">
 
-                                <form action="addMemberGen.php" method="POST" enctype="multipart/form-data">
+                                <form action="addMemberGen.php" method="POST" enctype="multipart/form-data"> <!--this enctype should be included if not picture cannot be recognized-->
                                     <h2>Add Members</h2>
                                     
 
@@ -449,7 +449,7 @@
 
 
                                     <button type="submit" name="addMember">Add</button>
-                                    <a href="adminProfile.php" class="ca">HOME</a>
+                                    <a href="approvalExecution.php" class="ca">Approval</a>
                                 </form>
 
                             </div>
