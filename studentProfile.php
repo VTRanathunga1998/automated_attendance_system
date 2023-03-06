@@ -2,9 +2,10 @@
 
     session_start();
 
-    if(empty($_SESSION['userName']) || $_SESSION['userName'] != 'Student'){
+    if(empty($_SESSION['userName']) || $_SESSION['role'] != 'Student'){
         header("Location:logindenied.php");
     }
+
 
     include_once 'database.php';
 
@@ -431,6 +432,7 @@
             <div class="right-side">
                 <div class="rs-top">
                     <div style="width: 70%;height: 100%;"></div>
+
                     <div class="logout-btn">
                         <button type="button" class="btn-center"><a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  Log out</a></button>
                     </div>
@@ -529,8 +531,9 @@
                                 <?php
                                     }
                                 ?>
+                                
                             </div>
-
+                            
                         </div>
 
                     </div>

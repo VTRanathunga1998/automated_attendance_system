@@ -53,7 +53,7 @@
                                                     echo '<script>if(confirm("Your password has been changed successfully")) document.location = "studentProfile.php";</script>';
                                                     exiit();
                                                 } elseif($row['role'] == 'Admin'){
-                                                    echo '<script>if(confirm("Your password has been changed successfully")) document.location = "admintProfile.php";</script>';
+                                                    echo '<script>if(confirm("Your password has been changed successfully")) document.location = "adminProfile.php";</script>';
                                                     exiit();
                                                 } else{
                                                     echo '<script>if(confirm("Your password has been changed successfully")) document.location = "lecturerProfile.php";</script>';

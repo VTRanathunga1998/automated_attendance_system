@@ -310,7 +310,56 @@
                     <p style="font-size:smaller;color: white;text-align: center;padding-top: 3%;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-style: italic;font-weight: bold;">&copy; All right reserved.Automated Attendance System</p>
                 </div>
             </div>
-            
+            <div class="right-side">
+                <div class="rs-top">
+                    <div style="width: 70%;height: 100%;"></div>
+                    <div class="logout-btn">
+                        <button type="button" class="btn-center"><a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  Log out</a></button>
+                    </div>
+                </div>
+
+                    <div class="rs-middle">
+                        <div class="pw-change-container">
+                            <div class="pwc-top"></div>
+                            <div class="pwc-middle">
+
+                                <form action="changePass.php" method="post">
+                                    <h2>Change Password</h2>
+                                    
+
+                                    <label>Old Password</label>
+                                    <input type="password" 
+                                        name="currentPass" 
+                                        placeholder="Old Password" required>
+                                        <br>
+
+                                    <label>New Password</label>
+                                    <div class="input-box">
+                                        <input type="password" name="newPass" id="password" placeholder="New Password" required>
+                                        <p id='message'>
+                                            Password is <span id='strength'></span>
+                                        </p>
+                                    </div>    
+                                        <br>
+
+                                    <label>Confirm New Password</label>
+                                    <input type="password" 
+                                        name="confirmPass" 
+                                        placeholder="Confirm New Password" required>
+                                        <br>
+
+                                    <button type="submit" name="changedPass">CHANGE</button>
+                                    <a href="studentProfile.php" class="ca">HOME</a>
+                                </form>
+
+                            </div>
+                            <div class="pwc-bottom"></div>
+                        </div>
+                    </div>
+
+
+                <div class="rs-bottom"></div>
+            </div>
         </div>
     </div>
 

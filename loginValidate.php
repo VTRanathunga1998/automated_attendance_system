@@ -7,7 +7,7 @@
     if(isset($_POST['submit'])){
         $userName = $_POST['username'];
         $password = $_POST['password'];
-        $securePassword = password_hash($password,PASSWORD_DEFAULT);
+        // $securePassword = password_hash($password,PASSWORD_DEFAULT);
 
 
         $sql = "SELECT * FROM user WHERE userName = '$userName';";
@@ -20,7 +20,10 @@
         if($resultRows > 0){
             while($row = mysqli_fetch_assoc($result)){  
                 if(password_verify($password,$row['password'])){
+
+
                     $_SESSION['userName'] = $_POST['username']; //Session created
+                    $_SESSION['role'] = $row['role'];
 
                     if($row['role'] == 'Student'){
                         header("Location:studentProfile.php?login=success");
@@ -37,8 +40,9 @@
                         exit();
                     }
                 } else {
-                    echo '<script>if(confirm("Password is mismatch")) document.location = \'index.php?password=incorrect\';</script>';
-                    // header("Location:index.php?password=incorrect");
+                    $_SESSION['status'] = "Password is mismatch";
+                    $_SESSION['state'] = "danger";
+                    header("Location:login.php?password=incorrect");
                     exit();
                 }
             }

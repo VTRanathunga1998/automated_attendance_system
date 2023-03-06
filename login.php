@@ -20,6 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php if(isset($page_title)) { echo $page_title; }?></title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
@@ -71,6 +72,19 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
+                    <?php 
+                        if(isset($_SESSION['status']))
+                        {
+                    ?>  <div class="alert alert-<?php echo $_SESSION['state'] ?> alert-dismissible fade show" role="alert">
+                            <h5><?php echo $_SESSION['status'] ?></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php          
+                            unset($_SESSION['status']);
+                            unset($_SESSION['state']);
+                        
+                        }
+                    ?>
                     <div class="card shadow">
                         <div class="card-header">
                             <h5>Login Form</h5>
@@ -86,10 +100,14 @@
                                     <label for="">Password</label>
                                     <input type="password" name="password" class="form-control" required>
                                 </div>
+
                                 
-                                <div class="form-group">
+                                
+                                <div class="form-group mb-3">
                                     <button type="submit" name="submit" class="btn btn-primary">Login</button>
+                                    <a href="forgotpassword.php" class="float-end link-success">Forgot password?</a>
                                 </div>
+
                             </form>
                         </div>
                     </div>
@@ -98,6 +116,6 @@
         </div>
     </div> 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
 </html>

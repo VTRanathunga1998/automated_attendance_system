@@ -1,5 +1,10 @@
 <?php
 
+    session_start();
+    if(empty($_SESSION['userName']) || $_SESSION['role'] != 'Admin'){
+        header("Location:logindenied.php");
+    }
+
     include 'database.php';
 
     if(isset($_POST['register'])){
@@ -11,10 +16,14 @@
          $specialchars = preg_match('@[^\w]@', $_POST['password']);
 
         if($_POST['password'] != $_POST['confirmPassword']){
-            echo '<script>if(confirm("Password mismatch")) document.location = "register.php";</script>';
+            $_SESSION['status'] = "Password is mismatch";
+            $_SESSION['state'] = "danger";
+            header("Location:register.php?password=mismatch");
             exiit();
         } elseif(!$uppercase || !$lowercase || !$number || !$specialchars || strlen($_POST['password']) < 8){
-            echo '<script>if(confirm("Password is too weak. At least 8-12 characters long but 14 or more is better. A combination of uppercase letters, lowercase letters, numbers, and symbols")) document.location = "register.php";</script>';
+            $_SESSION['status'] = "Password is too weak. At least 8-12 characters long but 14 or more is better. A combination of uppercase letters, lowercase letters, numbers, and symbols";
+            $_SESSION['state'] = "danger";
+            header("Location:register.php");
             exiit();
         } else {
 
@@ -55,10 +64,13 @@
                         $faculty = $row['facName'];
                         $department = $row['depName'];
 
-                        $sql = "INSERT INTO approve(id,role,firstName,lastName,nic,mobile,email,faculty,department,gender,profilePic,password,batch) VALUES('$id','$role','$firstName','$firstName','$nic','$mobile','$email','$faculty','$department','$gender','$profilePic','$securePassword','$batch' )";
+                        $sql = "INSERT INTO approve(id,role,firstName,lastName,nic,mobile,email,faculty,department,gender,profilePic,password,batch) VALUES('$id','$role','$firstName','$lastName','$nic','$mobile','$email','$faculty','$department','$gender','$profilePic','$securePassword','$batch' )";
 
                         if(mysqli_query($connect,$sql)){                           
-                            echo '<script>if(confirm("Your request is pending")) document.location = "index.php";</script>';
+                            // echo '<script>if(confirm("Your request is pending")) document.location = "index.php";</script>';
+                            $_SESSION['status'] = "Your request is pending";
+                            $_SESSION['state'] = "success";
+                            header("Location:login.php");
                             exiit();                       
                         } else {               
                             echo '<script>if(confirm("Database Error")) document.location = "index.php";</script>';

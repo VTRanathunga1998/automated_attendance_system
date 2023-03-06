@@ -62,6 +62,19 @@
 
             <div class="row justify-content-center">
                 <div class="col-md-6">
+                    <?php 
+                        if(isset($_SESSION['status']))
+                        {
+                    ?>  <div class="alert alert-<?php echo $_SESSION['state'] ?> alert-dismissible fade show" role="alert">
+                            <h5><?php echo $_SESSION['status'] ?></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php          
+                            unset($_SESSION['status']);
+                            unset($_SESSION['state']);
+                        
+                        }
+                    ?>
                     <div class="card shadow overflow-auto" >  <!--style="height: 500px;"-->
                         <div class="card-header">
                             <h5>Register Form</h5>
@@ -84,12 +97,12 @@
                                 
                                 <div class="mb-3">
                                     <label class="form-label">First name</label>
-                                    <input type="text" class="form-control" name ="fName" placeholder="Enter first name" required>
+                                    <input type="text" class="form-control" name ="fName" placeholder="Enter first name" pattern="[A-Za-z ]{3,}" title="only letters" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Last name</label>
-                                    <input type="text" class="form-control" name ="lName" placeholder="Enter last name" required>
+                                    <input type="text" class="form-control" name ="lName" placeholder="Enter last name" pattern="[A-Za-z ]{3,}" title="only letters" required>
                                 </div>
                                 
                                 <div class="mb-3">
@@ -99,7 +112,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label">Mobile number</label>
-                                    <input type="text" class="form-control" name = "mobNum" placeholder="Enter mobile number" required>
+                                    <input type="text" class="form-control" name = "mobNum" placeholder="Enter mobile number" pattern="[0-9]{10}" title="only numeric values are accepted" required>
                                 </div>
 
                                 <div class="mb-3">
@@ -144,7 +157,8 @@
 
                                 <div class="mb-3">
                                     <label class="form-label">Password</label>
-                                    <input type="password" class="form-control" name = "password" placeholder="Enter password" required>
+                                    <input type="password" class="form-control" name = "password" placeholder="Enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    title="Password is too weak. At least 8-12 characters long but 14 or more is better. A combination of uppercase letters, lowercase letters, numbers, and symbols" required>
                                 </div>
 
                                 <div class="mb-3">
@@ -198,6 +212,7 @@
     </script>    
 
     <script src="js_multi_level_dropdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
 </body>
 

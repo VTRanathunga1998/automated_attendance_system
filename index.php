@@ -65,10 +65,42 @@
     </div>
       
   </div>
+
+    <!-- <div class="container-fluid" style="padding:0;">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" >
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="styles/img/c_one.jpg"  style="object-fit: cover; " class="d-block w-100"  height="400px" alt="image">
+            </div>
+            <div class="carousel-item">
+            <img src="styles/img/c_two.jpg" style="object-fit: cover; " class="d-block w-100"  height="400px" alt="image">
+            </div>
+            <div class="carousel-item">
+            <img src="styles/img/book-2363912_1280.jpg" style="object-fit: cover; " class="d-block w-100"  height="400px" alt="image">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    </div> -->
     <div class="py-5">
         <div class="container">
             <div class="row flex-grow-1 justify-content-center">
                 <div class="col-md-12 text-center ">
+                    
+                    
+
                     <div class="clearfix">
                         <img src="styles/img/SUSL_logo2.png" class="rounded mx-auto d-block img-fluid" alt="SUSL">
                     </div>

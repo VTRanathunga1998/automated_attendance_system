@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    if(empty($_SESSION['userName'])){
+    if(empty($_SESSION['userName']) || $_SESSION['role'] != 'Admin'){
         header("Location:logindenied.php");
     }
 
@@ -10,6 +10,11 @@
     $sql = "SELECT * FROM approve";
 
     $result = mysqli_query($connect,$sql);
+
+    if(mysqli_num_rows($result) == 0){
+        header("Location:adminSettingAddMember.php?memberCount=0");
+        exit();
+    }
 ?>
 
 
